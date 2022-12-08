@@ -1,0 +1,34 @@
+{
+    "Drinks": [
+        {
+            "name": "Water",
+            "volume": 0.5,
+            "sparkling": true,
+            "alcoholic": false
+        },
+        {
+            "name": "Coca-Cola",
+            "volume": 1.5,
+            "sparkling": true,
+            "alcoholic": false
+        },
+        {
+            "name": "Juice",
+            "volume": 1,
+            "sparkling": false,
+            "alcoholic": false
+        },
+        {
+            "name": "Gin",
+            "volume": 0.7,
+            "sparkling": false,
+            "alcoholic": true
+        },
+        {
+            "name": "Beer",
+            "volume": 0.5,
+            "sparkling": true,
+            "alcoholic": true
+        }
+    ]
+}

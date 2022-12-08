@@ -1,0 +1,5 @@
+<'Water' name: Water, volume: 0.5, sparkling: True, alcoholic: False>
+<'CocaCola' name: Coca-Cola, volume: 1.5, sparkling: True, alcoholic: False>
+<'Juice' name: Juice, volume: 1, sparkling: False, alcoholic: False>
+<'Gin' name: Gin, volume: 0.7, sparkling: False, alcoholic: True>
+<'Beer' name: Beer, volume: 0.5, sparkling: True, alcoholic: True>
