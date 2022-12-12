@@ -13,8 +13,8 @@ class Drink(ABC):
     @abstractmethod
     def for_children(self):
         if(self.alcoholic):
-            return f' Напиток {self.model} для лиц старше 18 лет'
-        return f' Напиток {self.model} разрешен для лиц младше 18 лет'
+            return f'  {self.model} for person older than 18 y.o.'
+        return f'  {self.model} allowed for porson yonger than 18 y.o.'
 
 
 class Water(Drink):
