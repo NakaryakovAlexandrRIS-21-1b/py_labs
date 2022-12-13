@@ -8,56 +8,52 @@ class Drink(ABC):
         self.alcoholic = alcoholic
 
     def __repr__(self) -> str:
-        return f'<\'{self.__class__.__name__}\' name: {self.name}, volume: {self.volume}, sparkling: {self.sparkling}, alcoholic: {self.alcoholic}>'
+        return f'<\'{self.__class__.__brand__}\' brand: {self.brand}, volume: {self.volume}, sparkling: {self.sparkling}, alcoholic: {self.alcoholic}>'
 
     @abstractmethod
-    def for_children(self):
-        if(self.alcoholic):
-            return f'  {self.model} for person older than 18 y.o.'
-        return f'  {self.model} allowed for porson yonger than 18 y.o.'
-
-
+    def is_for_children(self):
+        return not self.alcoholic
 class Water(Drink):
     def __init__(self, volume: int, sparkling: bool, alcoholic: bool):
-        self.name = "Water"
+        self.brand = "Bon-Aqua"
         super().__init__(volume, sparkling, alcoholic)
 
-    def for_children(self):
-        return super().for_children()
+    def is_for_children(self):
+        return super().is_for_children()
 
 
 class CocaCola(Drink):
     def __init__(self, volume: int, sparkling: bool, alcoholic: bool):
-        self.name = "Coca-Cola"
+        self.brand = "Coca-Cola"
         super().__init__(volume,sparkling,alcoholic)
 
-    def for_children(self):
-        return super().for_children()
+    def is_for_children(self):
+        return super().is_for_children()
 
 class Gin(Drink):
     def __init__(self, volume: int, sparkling: bool, alcoholic: bool):
-        self.name = "Gin"
+        self.brand = "Barrister"
         super().__init__(volume, sparkling, alcoholic)
 
-    def for_children(self):
-        return super().for_children()
+    def is_for_children(self):
+        return super().is_for_children()
 
 class Juice(Drink):
     def __init__(self, volume: int, sparkling: bool, alcoholic: bool):
-        self.name = "Juice"
+        self.brand = "Rich"
         super().__init__(volume, sparkling, alcoholic)
 
-    def for_children(self):
-        return super().for_children()
+    def is_for_children(self):
+        return super().is_for_children()
 
 
 class Beer(Drink):
     def __init__(self, volume: int, sparkling: bool, alcoholic: bool):
-        self.name = "Beer"
+        self.brand = "Budweiser"
         super().__init__(volume, sparkling, alcoholic)
 
-    def for_children(self):
-        return super().for_children()
+    def is_for_children(self):
+        return super().is_for_children()
 
 def write(data):
     jsonstr = json.dumps(ensure_ascii=False, obj=data, indent=4)
@@ -85,16 +81,16 @@ data.clear()
 objects.clear()
 data = read_from_json()
 for obj in data['Drinks']:
-    match obj['name']:
-        case "Water":
+    match obj['brand']:
+        case "Bon-Aqua":
             obj = Water(obj['volume'], obj['sparkling'], obj['alcoholic'])
         case "Coca-Cola":
             obj = CocaCola(obj['volume'], obj['sparkling'], obj['alcoholic'])
-        case "Juice":
+        case "Rich":
             obj = Juice(obj['volume'], obj['sparkling'], obj['alcoholic'])
-        case "Gin":
+        case "Barrister":
             obj = Gin(obj['volume'], obj['sparkling'], obj['alcoholic'])
-        case "Beer":
+        case "Budweiser":
             obj = Beer(obj['volume'], obj['sparkling'], obj['alcoholic'])
     objects.append(obj)
 
@@ -102,3 +98,4 @@ with open(encoding='utf-8', file='output.txt', mode='w') as file:
     for obj in objects:
         output = obj.__repr__() + "\n"
         file.write(output)
+        #Сдано
